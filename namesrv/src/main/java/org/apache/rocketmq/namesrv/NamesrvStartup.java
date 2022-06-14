@@ -79,6 +79,9 @@ public class NamesrvStartup {
             return null;
         }
 
+        //先创建NameServerConfig(NameServer参数),NettyServerConfig(NameServer网络参数),然后在解析启动时把指定的配置文件或启动命令中的选项值,
+        //填充到nameServerConfig,nettyServerConfig对象
+        //参数来源 1)-c configFile 通过-c命令指定配置文件的路径 2)使用"__属性名 属性值"
         final NamesrvConfig namesrvConfig = new NamesrvConfig();
         final NettyServerConfig nettyServerConfig = new NettyServerConfig();
         nettyServerConfig.setListenPort(9876);
